@@ -17,6 +17,7 @@ const ContactQuery = gql`
 
 function Home() {
   const { data, loading } = useQuery(ContactQuery)
+  console.log("data", data)
   return (
     <Layout home>
       <Head>
@@ -24,7 +25,16 @@ function Home() {
       </Head>
       <section className={utilStyles.headingMd}>
         <p>Reconnect App coming soon!</p>
-        {data && data.contacts.map(({name}) => <div>{name}</div>)}
+        {data && data.contacts.map(({name, email, phone}) => {
+          return(
+            <div>
+              <ul>
+                <li>{name}</li>
+                <li>{phone}</li>
+                <li>{email}</li>
+              </ul>
+            </div>
+          )})}
       </section>
     </Layout>
   )
