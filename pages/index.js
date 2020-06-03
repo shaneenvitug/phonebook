@@ -4,6 +4,7 @@ import utilStyles from '../styles/utils.module.css'
 import { withApollo } from "../apollo/client"
 import gql from "graphql-tag"
 import { useQuery } from "@apollo/react-hooks"
+import Login from '../components/login'
 
 const ContactQuery = gql`
   query ContactQuery {
